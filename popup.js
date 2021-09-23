@@ -1,14 +1,12 @@
-// const port = chrome.runtime.connect({name: 'msn'})
-
 function toOptions(tabs){
-  let urlToArr = [];
+  let urlToObj = {};
   let currentId;
   for (var i=0; i < tabs.length; i++) {
     currentId = tabs[i].id;
-    urlToArr.push(tabs[i].url)
+    urlToObj[tabs[i].url] = tabs[i].title;
     chrome.tabs.remove(currentId);
   }
-  return urlToArr;
+  return urlToObj;
 }
 
 function copy(){
@@ -16,10 +14,6 @@ function copy(){
     tabsText = toOptions(tabs)
     chrome.runtime.openOptionsPage()
     chrome.storage.local.set({"key": tabsText})
-
-    // // Code to send messages over the port. Don't need anymore because I'm using local storage.
-    // chrome.extension.sendMessage(tabsText)
-    // port.postMessage({urls: tabsText})
   })
 }
 
@@ -33,18 +27,9 @@ document.addEventListener("DOMContentLoaded", function(event){
 })
 
 
-// Event listener for when "O2" button is clicked. Haven't decided what functionality to give it.
+// Opens the options tab.
 document.addEventListener("DOMContentLoaded", function(event){
-  document.getElementById('O2').addEventListener('click', function(){
-    chrome.windows.getCurrent(function(){
-      chrome.storage.local.get(['key'], function(result){
-        console.log("length is " + storage.local.length)
-        console.log(result.key);
-      })
-    })
+  document.getElementById('Options').addEventListener('click', function(){
+    chrome.runtime.openOptionsPage();
   })
 })
-
-
-// Button to open and remove
-// Somehow cycle through tabs

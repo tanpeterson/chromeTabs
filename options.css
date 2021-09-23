@@ -1,8 +1,50 @@
+body {
+  background-color: hsl(198, 68%, 83%);
+}
+
 #storedTabs{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+h1 {
+  font-size: 4.2rem; 
+  animation: flicker 1.5s infinite alternate;
+  color: rgb(248, 243, 178);   
+}
+
+/* Flickering animation */
+@keyframes flicker {
+    
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+      text-shadow:
+      0 0 4px rgb(0, 0, 0),
+      0 0 11px rgb(255,215,0),
+      0 0 19px rgb(255,215,0),
+      0 0 40px hsl(64, 100%, 50%),
+      0 0 80px hsl(64, 100%, 50%),
+      0 0 90px hsl(64, 100%, 50%),
+      0 0 100px hsl(64, 100%, 50%),
+      0 0 150px hsl(64, 100%, 50%);
+  
+  }
+  
+  20%, 24%, 55% {        
+      text-shadow: none;
+  }    
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: rgb(35, 34, 43);
+  background-color: hsl(191, 100%, 94%);
+  margin-bottom: 5px;
+  border-radius: 10px;
+  padding: 0px 15px;
+}
+
 
 p {
   display: block;
@@ -13,5 +55,67 @@ p {
   font-size: 15px;
   padding: 5px;
   font-weight: bold;
-  
+}
+
+.cloud{ 
+  margin-top:70px;
+  width:350px;
+  height:120px;
+  background:#ECEFF1;
+  box-shadow: 10px 10px rgba(0,0,0,0.2);
+  border-radius:100px;
+  z-index: -1;
+}
+.cloud::after, .cloud::before{
+   content:"";
+   position:relative;
+   display:inline-block;
+   background:inherit;
+   border-radius:inherit;
+}
+.cloud::after{
+   width:100px;
+   height:100px;
+   top:-220px;
+   left:50px;
+}
+.cloud::before{
+   width:180px;
+   height:180px;
+   top: -70px;
+   left:130px;
+}
+
+.cloud {
+  display: block;
+  position: absolute;
+  -webkit-animation: moveX 2s linear 0s infinite alternate, moveY 13.4s linear 0s infinite alternate;
+  -moz-animation: moveX 12s linear 0s infinite alternate, moveY 13.4s linear 0s infinite alternate;
+  -o-animation: moveX 12s linear 0s infinite alternate, moveY 13.4s linear 0s infinite alternate;
+  animation: moveX 12s linear 0s infinite alternate, moveY 13.4s linear 0s infinite alternate;
+}
+@-webkit-keyframes moveX {
+  from { left: 0; } to { left: 75%; }
+}
+@-moz-keyframes moveX {
+  from { left: 0; } to { left: 75%; }
+}
+@-o-keyframes moveX {
+  from { left: 0; } to { left: 75%; }
+}
+@keyframes moveX {
+  from { left: 0; } to { left: 75%; }
+}
+
+@-webkit-keyframes moveY {
+  from { top: 0; } to { top: 75%; }
+}
+@-moz-keyframes moveY {
+  from { top: 0; } to { top: 75%; }
+}
+@-o-keyframes moveY {
+  from { top: 0; } to { top: 75%; }
+}
+@keyframes moveY {
+  from { top: 0; } to { top: 75%; }
 }
