@@ -1,8 +1,11 @@
 {
-  "name": "Tab",
-  "description": "Build an Extension!",
+  "name": "Tab Heaven",
+  "description": "Saves you from 'tab hell' by condensing all your tabs into one page.",
   "version": "1.0",
   "manifest_version": 3,
+  "icons": { "16": "hands.png",
+    "48": "hands.png",
+   "128": "hands.png" },
   "background": {
     "service_worker": "background.js"
   },
