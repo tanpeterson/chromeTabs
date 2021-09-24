@@ -1,5 +1,6 @@
 body {
-  background-color: hsl(198, 68%, 83%);
+  background-image: linear-gradient(hsl(198, 68%, 83%), hsl(198, 68%, 83%), rgb(255, 0, 0));
+  /* background-color: hsl(198, 68%, 83%); */
 }
 
 #storedTabs{
@@ -43,6 +44,7 @@ a, a:visited {
   margin-bottom: 5px;
   border-radius: 10px;
   padding: 0px 15px;
+  box-shadow: 0 0 0 2px rgb(204, 204, 204);
 }
 
 
